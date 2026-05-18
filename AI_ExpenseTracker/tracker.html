@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet"
+    href="./css/tracker.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div>
+
+            <h1>Expense Tracker</h1>
+
+            <p id="welcomeText"></p>
+
+        </div>
+
+        <button
+        class="btn btn-dark"
+        onclick="darkMode()">
+
+        🌙
+
+        </button>
+
+    </div>
+
+    <!-- INPUT SECTION -->
+
+    <div class="input-container">
+
+        <input
+        type="text"
+        placeholder="Transaction Title"
+        class="form-control"
+        id="title">
+
+        <input
+        type="number"
+        placeholder="Amount"
+        class="form-control"
+        id="amount">
+
+        <input
+        type="date"
+        class="form-control"
+        id="date">
+
+        <select
+        class="form-select"
+        id="type">
+
+            <option value="income">
+                Income
+            </option>
+
+            <option value="expense">
+                Expense
+            </option>
+
+        </select>
+
+        <button
+        class="btn btn-primary"
+        onclick="addTransaction()">
+
+        Add
+
+        </button>
+
+    </div>
+
+    <!-- SUMMARY CARDS -->
+
+    <div class="cards">
+
+        <div class="card-box">
+
+            <h4>Total Income</h4>
+
+            <h1 id="income">
+                ₹0
+            </h1>
+
+        </div>
+
+        <div class="card-box">
+
+            <h4>Total Expense</h4>
+
+            <h1 id="expense">
+                ₹0
+            </h1>
+
+        </div>
+
+        <div class="card-box">
+
+            <h4>Balance</h4>
+
+            <h1 id="balance">
+                ₹0
+            </h1>
+
+        </div>
+
+    </div>
+
+    <!-- CHART -->
+
+    <div class="chart-container">
+
+        <canvas id="expenseChart"></canvas>
+
+    </div>
+
+    <!-- AI BOX -->
+
+    <div class="ai-box" id="aiBox">
+
+        AI Suggestion appears here...
+
+    </div>
+
+    <!-- FILTER + SEARCH -->
+
+    <div class="filter-container">
+
+        <select
+        class="form-select"
+        id="filterType"
+        onchange="filterTransactions()">
+
+            <option value="all">
+                All Transactions
+            </option>
+
+            <option value="income">
+                Income
+            </option>
+
+            <option value="expense">
+                Expense
+            </option>
+
+        </select>
+
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search transaction..."
+        id="searchInput"
+        onkeyup="filterTransactions()">
+
+    </div>
+
+    <!-- TABLE -->
+
+    <table class="table mt-4">
+
+        <thead>
+
+            <tr>
+
+                <th>Title</th>
+
+                <th>Amount</th>
+
+                <th>Category</th>
+
+                <th>Type</th>
+
+                <th>Date</th>
+
+                <th>Delete</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
+
+    <!-- CHART JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JS FILE -->
+
+    <script src="./js/tracker.js"></script>
+
+</body>
+
+</html>
